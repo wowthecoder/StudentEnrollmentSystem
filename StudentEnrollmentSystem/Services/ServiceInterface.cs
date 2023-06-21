@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StudentEnrollmentSystem.Authentication;
 using StudentEnrollmentSystem.Models;
 
 namespace StudentEnrollmentSystem.Services
@@ -34,5 +35,21 @@ namespace StudentEnrollmentSystem.Services
         public Task ApproveEnrollment(long id);
         public Task RejectEnrollment(long id);
         public Task HardDeleteEnrollment(long id);
+    }
+
+    public interface IAuthServices
+    {
+        public Task<TokenResponse> Login(LoginModel model);
+        public Task<StatusResponse> RegisterStudent(RegisterModel model);
+        public Task<StatusResponse> ChangePassword(ChangePasswordModel model);
+    }
+
+    public interface IAdminServices
+    {
+        public Task<StatusResponse> RegisterAdmin(RegisterModel model);
+        public Task<IEnumerable<AdminDTO>> GetAllAdmins();
+        public Task<AdminDTO> GetAdmin(string username);
+        public Task<StatusResponse> UpdateAdmin(AdminDTO model);
+        public Task<StatusResponse> HardDeleteAdmin(string username);
     }
 }

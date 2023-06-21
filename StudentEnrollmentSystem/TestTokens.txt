@@ -1,0 +1,20 @@
+﻿1.[No roles] "username": "wowthecoder1",
+    "email": "oopsie@kitkat.com",
+    "password": "testAPI123?"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoid293dGhlY29kZXIxIiwianRpIjoiZmNkZjY4ZGEtM2VhMC00M2I0LWE0NjMtYTY4NmNhMWVlM2I1IiwiZXhwIjoxNjg3MjY0NzI0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo3MTk1In0.QUIxAmaYs3U_LW3dlijr4AFJNcANc84K_8XRS-hq4_Q"
+
+2.[Admin] 
+    "username": "AdminBro1",
+    "email": "aliabu@admin.com",
+    "password": "testAdmin123?"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWRtaW5Ccm8xIiwianRpIjoiOTVlMmEwN2YtYjg1Ny00YTQxLTkyOGItNmQyYzA1NjM5NDY2IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIkFkbWluIiwiU3R1ZGVudCJdLCJleHAiOjE2ODczNTM5MDgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcxOTUifQ.JKpRufAg1bOX--g_zKx3WsDxq3M5vtPtYnCisXulzNo"
+3.[Student]
+    "username": "DurianGuy",
+    "email": "durianguy@student.com",
+    "password": "Durian246?"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRHVyaWFuR3V5IiwianRpIjoiZTQwYWU0ODgtZmZlMy00MjdhLTllNmQtZGE5YWE1MGZiODk0IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3R1ZGVudCIsImV4cCI6MTY4NzM1MzA1MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzE5NSJ9.al9F9HqU8OfvmnC3T2kcpnNs7j14NtwaSfCcLnPCfOI"
+4.[Admin]    
+    "Username": "AdminNo2",
+    "Email": "Heeha@gmail.com",
+    "password": "AdminTest123!"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWRtaW5ObzIiLCJqdGkiOiI2Y2QxMjJjMi1jODg4LTQ3YzQtOTY0Ni03NGI3NDkzNzBmYmMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiQWRtaW4iLCJTdHVkZW50Il0sImV4cCI6MTY4NzM1NTYyNiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzE5NSJ9.vMmnHPP1VThuzMSkZEf6sY9Fas0C7evtuY8eWuQLl5E"

@@ -17,4 +17,16 @@
         public ProblemException() { }
         public ProblemException(string message) : base(message) { }
     }
+
+    public class UnauthorizedException : Exception 
+    {
+        public UnauthorizedException() { }
+        public UnauthorizedException(string message) : base(message) { }
+    }
+
+    public class InternalErrorException : Exception
+    {
+        public InternalErrorException() { }
+        public InternalErrorException(string message) : base(message) { }
+    }
 }

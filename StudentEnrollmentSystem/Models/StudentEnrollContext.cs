@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
 
 namespace StudentEnrollmentSystem.Models
 {
-    public class StudentEnrollContext : DbContext
+    public class StudentEnrollContext : IdentityDbContext<IdentityUser>
     {
         public StudentEnrollContext(DbContextOptions<StudentEnrollContext> options) : base(options)
         { 
@@ -22,6 +24,8 @@ namespace StudentEnrollmentSystem.Models
                 .HasOne(en => en.Course)
                 .WithMany(c => c.Enrollments)
                 .HasForeignKey(en => en.CourseId);
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Student> Students { get; set; } = null!;

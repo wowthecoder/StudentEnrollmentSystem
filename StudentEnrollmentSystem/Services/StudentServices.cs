@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StudentEnrollmentSystem.Enums;
 using StudentEnrollmentSystem.Interfaces;
@@ -11,9 +12,11 @@ namespace StudentEnrollmentSystem.Services
     {
         //private readonly StudentEnrollContext _context;
         private IUnitOfWork _unitOfWork;
-        public StudentServices(IUnitOfWork unitOfWork)
+        private readonly IMapper _mapper;
+        public StudentServices(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<IEnumerable<StudentDTO>> GetAllStudents()
@@ -84,13 +87,13 @@ namespace StudentEnrollmentSystem.Services
             {
                 throw new NotFoundException("No such student!");
             }
-            OriginalStudent.Name = studentDTO.Name;
-            OriginalStudent.Age = studentDTO.Age;
-            OriginalStudent.Gender = studentDTO.Gender;
             if (!Enum.IsDefined(typeof(Genders), studentDTO.Gender))
             {
                 throw new BadRequestException("No such gender!");
             }
+            OriginalStudent.Name = studentDTO.Name;
+            OriginalStudent.Age = studentDTO.Age;
+            OriginalStudent.Gender = studentDTO.Gender;
             OriginalStudent.UpdatedDate = DateTime.Now;
             //_context.Entry(OriginalStudent).State = EntityState.Modified;
             await _unitOfWork.StudentRepo.Update(OriginalStudent);
@@ -197,16 +200,9 @@ namespace StudentEnrollmentSystem.Services
             await _unitOfWork.Commit();
         }       
 
-        public static StudentDTO ItemToDTO(Student student)
+        public StudentDTO ItemToDTO(Student student)
         {
-            var output = new StudentDTO
-            {
-                Id = student.Id,
-                Name = student.Name,
-                Age = student.Age,
-                Gender = student.Gender,
-                Enrollments = student.Enrollments
-            };
+            var output = _mapper.Map<StudentDTO>(student);
             return output;
         }
     }
