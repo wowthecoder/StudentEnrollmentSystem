@@ -43,7 +43,7 @@ namespace StudentEnrollmentSystem.Services
             return enrollment;
         }
 
-        public async Task ApproveEnrollment(long id)
+        public async Task<Enrollment> ApproveEnrollment(long id)
         {
             var enrollment = await _unitOfWork.EnrollmentRepo.GetById(id);
             if (enrollment == null)
@@ -65,10 +65,13 @@ namespace StudentEnrollmentSystem.Services
                 throw new ProblemException("Student has withdrawn enrollment, so this enrollment cannot be approved.");
             }
             enrollment.Status = EnrollmentStatus.Approved;
+            await _unitOfWork.EnrollmentRepo.Update(enrollment);
             await _unitOfWork.Commit();
+            return enrollment;
+
         }
 
-        public async Task RejectEnrollment(long id)
+        public async Task<Enrollment> RejectEnrollment(long id)
         {
             var enrollment = await _unitOfWork.EnrollmentRepo.GetById(id);
             if (enrollment == null)
@@ -90,7 +93,9 @@ namespace StudentEnrollmentSystem.Services
                 throw new ProblemException("Student has withdrawn enrollment, so this enrollment cannot be rejected.");
             }
             enrollment.Status = EnrollmentStatus.Rejected;
+            await _unitOfWork.EnrollmentRepo.Update(enrollment);
             await _unitOfWork.Commit();
+            return enrollment;
         }
 
         public async Task HardDeleteEnrollment(long id)

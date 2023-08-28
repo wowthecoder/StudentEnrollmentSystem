@@ -123,7 +123,7 @@ namespace StudentEnrollmentSystem.Services
             return ItemToDTO(student);
         }
 
-        public async Task<StudentDTO> EnrollCourse(long studentId, long courseId)
+        public async Task<Enrollment> EnrollCourse(long studentId, long courseId)
         {
             var student = await _unitOfWork.StudentRepo.GetById(studentId);
             var course = await _unitOfWork.CourseRepo.GetById(courseId);
@@ -151,10 +151,11 @@ namespace StudentEnrollmentSystem.Services
             student.Enrollments.Add(enrollment);
             await _unitOfWork.StudentRepo.Update(student);
             await _unitOfWork.Commit();
-            return await GetStudent(studentId); //return enrollment;
+            return await _unitOfWork.EnrollmentRepo.GetOneWithCondition(
+                (en => (en.StudentId == studentId && en.CourseId == courseId))); //return enrollment;
         }
 
-        public async Task<StudentDTO> WithdrawCourse(long studentId, long courseId)
+        public async Task<Enrollment> WithdrawCourse(long studentId, long courseId)
         {
             var student = await _unitOfWork.StudentRepo.GetById(studentId);
             var course = await _unitOfWork.CourseRepo.GetById(courseId);
@@ -171,7 +172,8 @@ namespace StudentEnrollmentSystem.Services
             enrollment.Status = EnrollmentStatus.Withdrawn;
             await _unitOfWork.EnrollmentRepo.Update(enrollment);
             await _unitOfWork.Commit();
-            return await GetStudent(studentId);
+            return await _unitOfWork.EnrollmentRepo.GetOneWithCondition(
+                (en => (en.StudentId == studentId && en.CourseId == courseId)));
         }
 
         public async Task SoftDeleteProfile(long id)

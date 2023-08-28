@@ -41,6 +41,7 @@ namespace StudentEnrollmentSystem.Services
                 return new TokenResponse()
                 {
                     Token = new JwtSecurityTokenHandler().WriteToken(token),
+                    Role = userRoles.FirstOrDefault(),
                     Expiration = token.ValidTo
                 };
             }

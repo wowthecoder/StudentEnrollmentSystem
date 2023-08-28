@@ -49,7 +49,7 @@ namespace StudentEnrollmentSystem.Services
             OriginalCourse.Name = course.Name;
             OriginalCourse.NumOfStudents = course.NumOfStudents;
             OriginalCourse.LecturerName = course.LecturerName;
-            OriginalCourse.UpdatedDate = DateTime.Now;
+            OriginalCourse.UpdatedDate = DateTime.UtcNow;
             await _unitOfWork.CourseRepo.Update(OriginalCourse);
 
             await _unitOfWork.Commit();
@@ -60,6 +60,7 @@ namespace StudentEnrollmentSystem.Services
             course.CreatedDate = DateTime.Now;
             course.UpdatedDate = DateTime.Now;
             course.IsDeleted = false;
+            course.Enrollments = new List<Enrollment>();
             await _unitOfWork.CourseRepo.Add(course);
             await _unitOfWork.Commit();
 

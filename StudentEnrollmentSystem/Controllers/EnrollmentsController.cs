@@ -59,12 +59,12 @@ namespace StudentEnrollmentSystem.Controllers
 
         // PATCH: api/Enrollments/approve/5
         [HttpPatch("approve/{id}")]
-        public async Task<IActionResult> ApproveEnrollment(long id)
+        public async Task<ActionResult<Enrollment>> ApproveEnrollment(long id)
         {
             try
             {
-                await _enrollServices.ApproveEnrollment(id);
-                return NoContent();
+                var enrollment = await _enrollServices.ApproveEnrollment(id);
+                return Ok(enrollment);
             }
             catch (NotFoundException nfex)
             {
@@ -78,12 +78,12 @@ namespace StudentEnrollmentSystem.Controllers
 
         // PATCH: api/Enrollments/reject/5
         [HttpPatch("reject/{id}")]
-        public async Task<IActionResult> RejectEnrollment(long id)
+        public async Task<ActionResult<Enrollment>> RejectEnrollment(long id)
         {
             try
             {
-                await _enrollServices.RejectEnrollment(id);
-                return NoContent();
+                var enrollment = await _enrollServices.RejectEnrollment(id);
+                return Ok(enrollment);
             }
             catch (NotFoundException nfex)
             {

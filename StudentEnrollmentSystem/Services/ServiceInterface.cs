@@ -11,8 +11,8 @@ namespace StudentEnrollmentSystem.Services
         public Task<IEnumerable<Enrollment>> GetSelfEnrollments(long id);
         public Task UpdateStudent(long id, StudentDTO studentDTO);
         public Task<StudentDTO> CreateStudentProfile(StudentDTO studentDTO);
-        public Task<StudentDTO> EnrollCourse(long StudentId, long CourseId);
-        public Task<StudentDTO> WithdrawCourse(long StudentId, long CourseId);
+        public Task<Enrollment> EnrollCourse(long StudentId, long CourseId);
+        public Task<Enrollment> WithdrawCourse(long StudentId, long CourseId);
         public Task SoftDeleteProfile(long id);
         public Task HardDeleteProfile(long id);
 
@@ -32,8 +32,8 @@ namespace StudentEnrollmentSystem.Services
     {
         public Task<IEnumerable<Enrollment>> GetAllEnrollments();
         public Task<Enrollment> GetEnrollment(long id);
-        public Task ApproveEnrollment(long id);
-        public Task RejectEnrollment(long id);
+        public Task<Enrollment> ApproveEnrollment(long id);
+        public Task<Enrollment> RejectEnrollment(long id);
         public Task HardDeleteEnrollment(long id);
     }
 

@@ -102,12 +102,12 @@ namespace StudentEnrollmentSystem.Controllers
 
         //To enroll: api/students/enroll
         [HttpPatch("enroll/{studentId}/{courseId}")]
-        public async Task<ActionResult<StudentDTO>> EnrollCourse(long studentId, long courseId)
+        public async Task<ActionResult<Enrollment>> EnrollCourse(long studentId, long courseId)
         {
             try
             {
-                var student = await _studentservice.EnrollCourse(studentId, courseId);
-                return Ok(student);
+                var enrollment = await _studentservice.EnrollCourse(studentId, courseId);
+                return Ok(enrollment);
             }
             catch (NotFoundException nfex)
             {
@@ -120,12 +120,12 @@ namespace StudentEnrollmentSystem.Controllers
         }
 
         [HttpPatch("withdraw/{studentId}/{courseId}")]
-        public async Task<ActionResult<Student>> WithdrawCourse(long studentId, long courseId)
+        public async Task<ActionResult<Enrollment>> WithdrawCourse(long studentId, long courseId)
         {
             try
             {
-                var student = await _studentservice.WithdrawCourse(studentId, courseId);
-                return Ok(student);
+                var enrollment = await _studentservice.WithdrawCourse(studentId, courseId);
+                return Ok(enrollment);
             }
             catch (NotFoundException nfex)
             {
